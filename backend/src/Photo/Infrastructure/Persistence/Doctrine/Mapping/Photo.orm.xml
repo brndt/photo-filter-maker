@@ -1,0 +1,8 @@
+<doctrine-mapping>
+    <entity name="LaSalle\Performance\Photo\Domain\Photo" table="photo">
+        <id name="id" type="string" />
+        <field name="description" type="string" nullable="true"/>
+        <field name="url" type="string" nullable="false"/>
+        <field name="tags" type="simple_array" nullable="false"/>
+    </entity>
+</doctrine-mapping>
