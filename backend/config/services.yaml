@@ -24,5 +24,22 @@ services:
         resource: '../src/Controller'
         tags: ['controller.service_arguments']
 
+    Predis\Client:
+        arguments:
+            - '%env(REDIS_CONNECTION)%'
+    #          arguments:
+    #              - 'redis'
+    #              - 6379
+
+    #Doctrine\Common\Cache\RedisCache:
+    #   calls:
+    #       - method: setRedis
+    #         arguments:
+    #          - '@Snc\RedisBundle\Client\Phpredis\Client'
+
+    #    calls:
+    #        - method: connect
+    #          arguments:
+    #            - 'redis:6379'
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones

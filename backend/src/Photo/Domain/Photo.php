@@ -4,14 +4,16 @@ declare(strict_types=1);
 
 namespace LaSalle\Performance\Photo\Domain;
 
+use LaSalle\Performance\Photo\Domain\ValueObject\Uuid;
+
 final class Photo
 {
-    private string $id;
+    private Uuid $id;
     private string $url;
-    private string $tags;
+    private array $tags;
     private string $description;
 
-    public function __construct(string $id, string $url, string $tags, string $description)
+    public function __construct(Uuid $id, string $url, array $tags, string $description)
     {
         $this->id = $id;
         $this->url = $url;
@@ -19,7 +21,7 @@ final class Photo
         $this->description = $description;
     }
 
-    public function getId(): string
+    public function getId(): Uuid
     {
         return $this->id;
     }
@@ -29,7 +31,7 @@ final class Photo
         return $this->url;
     }
 
-    public function getTags(): string
+    public function getTags(): array
     {
         return $this->tags;
     }

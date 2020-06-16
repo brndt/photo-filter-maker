@@ -1,8 +1,8 @@
 <doctrine-mapping>
     <entity name="LaSalle\Performance\Photo\Domain\Photo" table="photo">
-        <id name="id" type="string" />
+        <id name="id" type="uuid" />
         <field name="description" type="string" nullable="true"/>
         <field name="url" type="string" nullable="false"/>
-        <field name="tags" type="simple_array" nullable="false"/>
+        <field name="tags" type="array" nullable="false"/>
     </entity>
 </doctrine-mapping>
