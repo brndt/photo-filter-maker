@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="936b8264-6ebc-4970-b62c-d9ec3ba66362" name="Default Changelist" comment="" />
+    <list default="true" id="936b8264-6ebc-4970-b62c-d9ec3ba66362" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../frontend/src/components/HelloWorld.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/components/HelloWorld.vue" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -127,6 +129,17 @@
       <path value="$PROJECT_DIR$/vendor/doctrine/sql-formatter" />
       <path value="$PROJECT_DIR$/vendor/psr/link" />
       <path value="$PROJECT_DIR$/vendor/nelmio/cors-bundle" />
+      <path value="$PROJECT_DIR$/vendor/ramsey/uuid" />
+      <path value="$PROJECT_DIR$/vendor/ramsey/collection" />
+      <path value="$PROJECT_DIR$/vendor/brick/math" />
+      <path value="$PROJECT_DIR$/vendor/predis/predis" />
+      <path value="$PROJECT_DIR$/vendor/league/color-extractor" />
+      <path value="$PROJECT_DIR$/vendor/claviska/simpleimage" />
+      <path value="$PROJECT_DIR$/vendor/symfony/messenger" />
+      <path value="$PROJECT_DIR$/vendor/symfony/doctrine-messenger" />
+      <path value="$PROJECT_DIR$/vendor/symfony/amqp-messenger" />
+      <path value="$PROJECT_DIR$/vendor/symfony/redis-messenger" />
+      <path value="$PROJECT_DIR$/vendor/symfony/amqp-pack" />
     </include_path>
   </component>
   <component name="ProjectId" id="1dMrGkT9s4xHyzAh9Op7j7o6sOh" />
@@ -139,7 +152,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/Photo/Infrastructure/Persistence/Mapping" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/Photo/Application/Event" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -147,6 +160,7 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="php.override.implement.member.chooser.php.doc" value="NONE" />
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
   <component name="RecentsManager">
@@ -154,6 +168,8 @@
       <recent name="$PROJECT_DIR$/src/Photo/Infrastructure/Persistence/Doctrine" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/Photo/Application/Event" />
+      <recent name="$PROJECT_DIR$/src/Photo/Infrastructure/Persistence/Doctrine/Type" />
       <recent name="$PROJECT_DIR$/src/Photo/Infrastructure/Persistence/Mapping" />
     </key>
   </component>
@@ -170,7 +186,8 @@
       <workItem from="1592245718189" duration="382000" />
       <workItem from="1592246101248" duration="774000" />
       <workItem from="1592249679870" duration="9578000" />
-      <workItem from="1592311363742" duration="681000" />
+      <workItem from="1592311363742" duration="17330000" />
+      <workItem from="1592332655690" duration="10020000" />
     </task>
     <servers />
   </component>
@@ -178,25 +195,33 @@
     <option name="version" value="2" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="768" y="272" width="374" height="569" key="#com.intellij.ide.util.MemberChooser" timestamp="1592255802465">
+    <state x="768" y="272" width="405" height="576" key="#com.intellij.ide.util.MemberChooser" timestamp="1592337787317">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
-    <state x="768" y="272" width="374" height="569" key="#com.intellij.ide.util.MemberChooser/0.27.1920.1053@0.27.1920.1053" timestamp="1592255802465" />
-    <state x="527" y="269" width="855" height="575" key="NewPhpClassDialog" timestamp="1592255700479">
+    <state x="768" y="272" width="405" height="576" key="#com.intellij.ide.util.MemberChooser/0.27.1920.1053@0.27.1920.1053" timestamp="1592337787317" />
+    <state x="693" y="311" width="524" height="491" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1592336606452">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
-    <state x="527" y="269" width="855" height="575" key="NewPhpClassDialog/0.27.1920.1053@0.27.1920.1053" timestamp="1592255700479" />
+    <state x="693" y="311" width="524" height="491" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.27.1920.1053@0.27.1920.1053" timestamp="1592336606452" />
+    <state x="431" y="505" width="1031" height="575" key="NewPhpClassDialog" timestamp="1592336541401">
+      <screen x="0" y="27" width="1920" height="1053" />
+    </state>
+    <state x="431" y="505" width="1031" height="575" key="NewPhpClassDialog/0.27.1920.1053@0.27.1920.1053" timestamp="1592336541401" />
     <state x="449" y="188" width="1022" height="737" key="SettingsEditor" timestamp="1592249817690">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
     <state x="449" y="188" width="1022" height="737" key="SettingsEditor/0.27.1920.1053@0.27.1920.1053" timestamp="1592249817690" />
-    <state x="649" y="285" width="782" height="594" key="find.popup" timestamp="1592257176675">
+    <state x="649" y="285" width="782" height="594" key="find.popup" timestamp="1592335516191">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
-    <state x="649" y="285" width="782" height="594" key="find.popup/0.27.1920.1053@0.27.1920.1053" timestamp="1592257176675" />
-    <state x="685" y="466" width="540" height="181" key="vcs.readOnlyHandler.ReadOnlyStatusDialog" timestamp="1592250808256">
+    <state x="649" y="285" width="782" height="594" key="find.popup/0.27.1920.1053@0.27.1920.1053" timestamp="1592335516191" />
+    <state x="623" y="259" width="672" height="678" key="search.everywhere.popup" timestamp="1592335409682">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
-    <state x="685" y="466" width="540" height="181" key="vcs.readOnlyHandler.ReadOnlyStatusDialog/0.27.1920.1053@0.27.1920.1053" timestamp="1592250808256" />
+    <state x="623" y="259" width="672" height="678" key="search.everywhere.popup/0.27.1920.1053@0.27.1920.1053" timestamp="1592335409682" />
+    <state x="685" y="466" width="540" height="181" key="vcs.readOnlyHandler.ReadOnlyStatusDialog" timestamp="1592337879057">
+      <screen x="0" y="27" width="1920" height="1053" />
+    </state>
+    <state x="685" y="466" width="540" height="181" key="vcs.readOnlyHandler.ReadOnlyStatusDialog/0.27.1920.1053@0.27.1920.1053" timestamp="1592337879057" />
   </component>
 </project>

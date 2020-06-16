@@ -4,7 +4,7 @@
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
-    imagesDirectory: '%kernel.project_dir%/public/uploads'
+    imagesDirectory: '%kernel.project_dir%/public/uploads/'
 
 services:
     # default configuration for services in *this* file
@@ -20,13 +20,24 @@ services:
 
     # controllers are imported separately to make sure services can be injected
     # as action arguments even if you don't extend any base controller class
-    LaSalle\Performance\Controller\:
-        resource: '../src/Controller'
+    LaSalle\Performance\Photo\Infrastructure\Framework\:
+        resource: '../src/Photo/Infrastructure/Framework'
         tags: ['controller.service_arguments']
 
     Predis\Client:
         arguments:
             - '%env(REDIS_CONNECTION)%'
+
+    LaSalle\Performance\Photo\Application\Event\ApplySepiaFilterOnPhotoCreated:
+        autoconfigure: false
+        tags:
+            - { name: messenger.message_handler, handles: LaSalle\Performance\Photo\Domain\Event\PhotoCreatedDomainEvent }
+
+    LaSalle\Performance\Photo\Application\Event\ApplyDesaturateFilterOnPhotoCreated:
+        autoconfigure: false
+        tags:
+            - { name: messenger.message_handler, handles: LaSalle\Performance\Photo\Domain\Event\PhotoCreatedDomainEvent }
+
     #          arguments:
     #              - 'redis'
     #              - 6379
