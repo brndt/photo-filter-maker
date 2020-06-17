@@ -1,12 +1,21 @@
 framework:
   messenger:
     transports:
-      image_proccessor:
+      sepia:
         dsn: '%env(MESSENGER_TRANSPORT_DSN)%'
         options:
           exchange:
-            name: image_proccessor
+            name: imageProccessor
             type: fanout
-          queues: [sepia, desaturate]
+          queues:
+            - sepia
+      desaturate:
+        dsn: '%env(MESSENGER_TRANSPORT_DSN)%'
+        options:
+          exchange:
+            name: imageProccessor
+            type: fanout
+          queues:
+            - desaturate
     routing:
-      'LaSalle\Performance\Photo\Domain\Event\PhotoCreatedDomainEvent': image_proccessor
+      'LaSalle\Performance\Photo\Domain\Event\PhotoCreatedDomainEvent': [sepia, desaturate]

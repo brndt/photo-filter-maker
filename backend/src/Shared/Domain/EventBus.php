@@ -6,5 +6,5 @@ namespace LaSalle\Performance\Shared\Domain;
 
 interface EventBus
 {
-    public function dispatch(DomainEvent $event, string $eventName = null);
+    public function dispatch(DomainEvent $event);
 }

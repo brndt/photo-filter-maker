@@ -4,10 +4,6 @@ declare(strict_types=1);
 
 namespace LaSalle\Performance\Photo\Infrastructure\Framework;
 
-use claviska\SimpleImage;
-use Doctrine\Common\Cache\PredisCache;
-use Doctrine\Common\Cache\RedisCache;
-use Exception;
 use LaSalle\Performance\Photo\Domain\Photo;
 use LaSalle\Performance\Photo\Domain\ValueObject\Uuid;
 use LaSalle\Performance\Photo\Infrastructure\Persistence\Doctrine\Repository\DoctrineMysqlRepository;

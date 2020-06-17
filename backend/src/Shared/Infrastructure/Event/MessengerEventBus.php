@@ -6,7 +6,10 @@ namespace LaSalle\Performance\Shared\Infrastructure\Event;
 
 use LaSalle\Performance\Shared\Domain\DomainEvent;
 use LaSalle\Performance\Shared\Domain\EventBus;
+use Symfony\Component\Messenger\Bridge\Amqp\Transport\AmqpStamp;
+use Symfony\Component\Messenger\Envelope;
 use Symfony\Component\Messenger\MessageBusInterface;
+use Symfony\Component\Messenger\Stamp\DelayStamp;
 
 final class MessengerEventBus implements EventBus
 {
@@ -17,8 +20,9 @@ final class MessengerEventBus implements EventBus
         $this->eventBus = $eventBus;
     }
 
-    public function dispatch(DomainEvent $event, string $eventName = null)
+    public function dispatch(DomainEvent $event)
     {
-        $this->eventBus->dispatch($event);
+        $envelope = new Envelope($event, [new AmqpStamp($event::eventName())]);
+        $this->eventBus->dispatch($envelope);
     }
 }

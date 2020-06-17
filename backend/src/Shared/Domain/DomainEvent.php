@@ -22,7 +22,6 @@ abstract class DomainEvent
 
     abstract public static function eventName(): string;
 
-
     public function getAggregateId(): string
     {
         return $this->aggregateId;
