@@ -152,7 +152,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/Photo/Application/Event" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/Photo/Application/Service" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -164,13 +164,14 @@
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/Photo/Infrastructure/Persistence/Doctrine" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/Photo/Application/Service" />
       <recent name="$PROJECT_DIR$/src/Photo/Application/Event" />
       <recent name="$PROJECT_DIR$/src/Photo/Infrastructure/Persistence/Doctrine/Type" />
       <recent name="$PROJECT_DIR$/src/Photo/Infrastructure/Persistence/Mapping" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/Photo/Infrastructure/Persistence/Doctrine" />
     </key>
   </component>
   <component name="SvnConfiguration">
@@ -187,7 +188,8 @@
       <workItem from="1592246101248" duration="774000" />
       <workItem from="1592249679870" duration="9578000" />
       <workItem from="1592311363742" duration="17330000" />
-      <workItem from="1592332655690" duration="19681000" />
+      <workItem from="1592332655690" duration="20325000" />
+      <workItem from="1592403852086" duration="20465000" />
     </task>
     <servers />
   </component>
@@ -195,18 +197,22 @@
     <option name="version" value="2" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="768" y="272" width="405" height="576" key="#com.intellij.ide.util.MemberChooser" timestamp="1592337787317">
+    <state x="768" y="272" width="439" height="576" key="#com.intellij.ide.util.MemberChooser" timestamp="1592424149242">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
-    <state x="768" y="272" width="405" height="576" key="#com.intellij.ide.util.MemberChooser/0.27.1920.1053@0.27.1920.1053" timestamp="1592337787317" />
-    <state x="693" y="311" width="524" height="491" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1592336606452">
+    <state x="768" y="272" width="439" height="576" key="#com.intellij.ide.util.MemberChooser/0.27.1920.1053@0.27.1920.1053" timestamp="1592424149242" />
+    <state x="498" y="72" width="904" height="976" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1592422968482">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
-    <state x="693" y="311" width="524" height="491" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.27.1920.1053@0.27.1920.1053" timestamp="1592336606452" />
-    <state x="431" y="505" width="1031" height="575" key="NewPhpClassDialog" timestamp="1592336541401">
+    <state x="498" y="72" width="904" height="976" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.27.1920.1053@0.27.1920.1053" timestamp="1592422968482" />
+    <state x="693" y="311" width="524" height="491" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1592419847827">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
-    <state x="431" y="505" width="1031" height="575" key="NewPhpClassDialog/0.27.1920.1053@0.27.1920.1053" timestamp="1592336541401" />
+    <state x="693" y="311" width="524" height="491" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.27.1920.1053@0.27.1920.1053" timestamp="1592419847827" />
+    <state x="431" y="505" width="1031" height="575" key="NewPhpClassDialog" timestamp="1592418771783">
+      <screen x="0" y="27" width="1920" height="1053" />
+    </state>
+    <state x="431" y="505" width="1031" height="575" key="NewPhpClassDialog/0.27.1920.1053@0.27.1920.1053" timestamp="1592418771783" />
     <state x="449" y="188" width="1022" height="737" key="SettingsEditor" timestamp="1592249817690">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
@@ -215,6 +221,10 @@
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
     <state x="649" y="285" width="782" height="594" key="find.popup/0.27.1920.1053@0.27.1920.1053" timestamp="1592349563505" />
+    <state x="793" y="324" width="323" height="465" key="refactoring.ChangeSignatureDialog" timestamp="1592424078772">
+      <screen x="0" y="27" width="1920" height="1053" />
+    </state>
+    <state x="793" y="324" width="323" height="465" key="refactoring.ChangeSignatureDialog/0.27.1920.1053@0.27.1920.1053" timestamp="1592424078772" />
     <state x="623" y="259" width="672" height="678" key="search.everywhere.popup" timestamp="1592335409682">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>

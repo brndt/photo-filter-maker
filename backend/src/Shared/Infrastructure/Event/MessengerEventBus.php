@@ -4,12 +4,11 @@ declare(strict_types=1);
 
 namespace LaSalle\Performance\Shared\Infrastructure\Event;
 
-use LaSalle\Performance\Shared\Domain\DomainEvent;
-use LaSalle\Performance\Shared\Domain\EventBus;
+use LaSalle\Performance\Shared\Domain\Event\DomainEvent;
+use LaSalle\Performance\Shared\Domain\Event\EventBus;
 use Symfony\Component\Messenger\Bridge\Amqp\Transport\AmqpStamp;
 use Symfony\Component\Messenger\Envelope;
 use Symfony\Component\Messenger\MessageBusInterface;
-use Symfony\Component\Messenger\Stamp\DelayStamp;
 
 final class MessengerEventBus implements EventBus
 {

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace LaSalle\Performance\Shared\Domain;
+namespace LaSalle\Performance\Shared\Domain\Event;
 
 use DateTimeImmutable;
 use LaSalle\Performance\Photo\Domain\ValueObject\Uuid;

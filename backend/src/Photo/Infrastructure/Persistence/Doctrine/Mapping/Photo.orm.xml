@@ -1,8 +1,10 @@
 <doctrine-mapping>
-    <entity name="LaSalle\Performance\Photo\Domain\Photo" table="photo">
+    <entity name="LaSalle\Performance\Photo\Domain\Aggregate\Photo" table="photo">
         <id name="id" type="uuid" />
         <field name="description" type="string" nullable="true"/>
-        <field name="url" type="string" nullable="false"/>
-        <field name="tags" type="array" nullable="false"/>
+        <field name="nameURL" type="string" nullable="false"/>
+        <field name="tags" type="array" nullable="true"/>
+        <field name="filter" type="filter" nullable="false"/>
+        <field name="filtersToApply" type="filtersToApply" nullable="true"/>
     </entity>
 </doctrine-mapping>

@@ -4,6 +4,8 @@ doctrine:
         charset: utf8
         types:
             uuid: LaSalle\Performance\Photo\Infrastructure\Persistence\Doctrine\Type\UuidType
+            filter: LaSalle\Performance\Photo\Infrastructure\Persistence\Doctrine\Type\FilterType
+            filtersToApply: LaSalle\Performance\Photo\Infrastructure\Persistence\Doctrine\Type\FiltersType
 
     orm:
         auto_generate_proxy_classes: true
@@ -14,4 +16,4 @@ doctrine:
                 is_bundle: false
                 type: xml
                 dir: '%kernel.project_dir%/src/Photo/Infrastructure/Persistence/Doctrine/Mapping'
-                prefix: LaSalle\Performance\Photo\Domain
+                prefix: LaSalle\Performance\Photo\Domain\Aggregate

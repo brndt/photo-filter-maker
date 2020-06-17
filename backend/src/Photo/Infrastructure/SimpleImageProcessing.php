@@ -36,7 +36,7 @@ final class SimpleImageProcessing implements ImageProcessing
         } catch (Exception $err) {
             // Handle errors
         }
-        return $newImageUrl;
+        return '1' . $imageUrl;
     }
 
     public function applyDesaturate(string $imageUrl)
@@ -57,6 +57,6 @@ final class SimpleImageProcessing implements ImageProcessing
         } catch (Exception $err) {
             // Handle errors
         }
-        return $newImageUrl;
+        return '2' . $imageUrl;
     }
 }
