@@ -32,7 +32,7 @@ final class SearchAsYouTypePhotoController extends AbstractController
     {
         $keyword = $request->get('keyword');
 
-        $criteria = new Criteria(Filters::fromValues([['field' => 'tags', 'operator' => FilterOperator::equal()->getValue(), 'value' => $keyword]]),Order::fromValues(null, null),null,null);
+        $criteria = new Criteria(Filters::fromValues([['field' => 'tags', 'operator' => 'equal', 'value' => $keyword]]),Order::fromValues('filter', 'desc'),null,10);
         $converter = new ElasticsearchCriteriaConverter();
 
         $query = $converter->convert($criteria);

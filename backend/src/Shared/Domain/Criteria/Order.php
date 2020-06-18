@@ -22,7 +22,7 @@ final class Order
 
     public static function fromValues(?string $orderBy, ?string $order): Order
     {
-        return null === $orderBy ? self::none() : new Order(new OrderBy($orderBy), new OrderType($order));
+        return null === $orderBy ? self::none() : new Order(new OrderBy($orderBy), OrderType::make($order));
     }
 
     public static function none(): Order
