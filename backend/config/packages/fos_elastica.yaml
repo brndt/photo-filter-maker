@@ -9,8 +9,8 @@ fos_elastica:
             properties:
               id:
               nameURL: { boost: 8, analyzer: my_analyzer }
-              tags:
-              description:
+              tags: { boost: 8, analyzer: my_analyzer }
+              description: { boost: 8, analyzer: my_analyzer }
               filter: { boost: 8, analyzer: my_analyzer }
             persistence:
               driver: orm

@@ -5,6 +5,11 @@ declare(strict_types=1);
 namespace LaSalle\Performance\Photo\Infrastructure\Framework;
 
 use FOS\ElasticaBundle\Elastica\Client;
+use LaSalle\Performance\Shared\Domain\Criteria\Criteria;
+use LaSalle\Performance\Shared\Domain\Criteria\FilterOperator;
+use LaSalle\Performance\Shared\Domain\Criteria\Filters;
+use LaSalle\Performance\Shared\Domain\Criteria\Order;
+use LaSalle\Performance\Shared\Infrastructure\Persistence\Elasticsearch\ElasticsearchCriteriaConverter;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -27,19 +32,13 @@ final class SearchAsYouTypePhotoController extends AbstractController
     {
         $keyword = $request->get('keyword');
 
-        $params = [
-                'query' => [
-                    'match' => [
-                        'nameURL' => [
-                            'query' => $keyword,
-                            'operator' => 'and'
-                        ]
-                    ]
-                ]
-        ];
+        $criteria = new Criteria(Filters::fromValues([['field' => 'tags', 'operator' => FilterOperator::equal()->getValue(), 'value' => $keyword]]),Order::fromValues(null, null),null,null);
+        $converter = new ElasticsearchCriteriaConverter();
+
+        $query = $converter->convert($criteria);
 
         $response = $this->elasticClient->getIndex('photo');
-        $elasticResponse = $response->search($params);
+        $elasticResponse = $response->search($query);
         $arrayResponse = array_map(fn($result) => $result->getData(), $elasticResponse->getResults());
         return new JsonResponse($arrayResponse, Response::HTTP_OK);
     }

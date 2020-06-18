@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d9fcd4109aad258ec77aaafc8e90f03c",
+    "content-hash": "a3603443fb30c5af2df814443261cfe8",
     "packages": [
         {
             "name": "brick/math",
@@ -1613,6 +1613,61 @@
             ],
             "abandoned": true,
             "time": "2014-10-12T19:18:40+00:00"
+        },
+        {
+            "name": "lambdish/phunctional",
+            "version": "v2.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Lambdish/phunctional.git",
+                "reference": "d21bf670ef4e1bd5ba7fc94b6cd2ae30053d21b4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Lambdish/phunctional/zipball/d21bf670ef4e1bd5ba7fc94b6cd2ae30053d21b4",
+                "reference": "d21bf670ef4e1bd5ba7fc94b6cd2ae30053d21b4",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.2"
+            },
+            "require-dev": {
+                "phpstan/phpstan": "^0.11.16",
+                "phpunit/phpunit": "^8.4"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "src/_bootstrap.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Eloi Poch",
+                    "email": "eloi.poch@gmail.com"
+                },
+                {
+                    "name": "Jorge Ávila",
+                    "email": "avilacardenosa@gmail.com"
+                },
+                {
+                    "name": "Rafa Gómez",
+                    "email": "rgomezcasas@gmail.com"
+                }
+            ],
+            "description": "λ PHP functional library",
+            "keywords": [
+                "functional",
+                "generator",
+                "lambda",
+                "library",
+                "php"
+            ],
+            "time": "2019-12-08T23:46:38+00:00"
         },
         {
             "name": "laminas/laminas-code",

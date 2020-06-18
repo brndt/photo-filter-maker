@@ -108,6 +108,9 @@
     "guzzlehttp/streams": {
         "version": "3.0.0"
     },
+    "lambdish/phunctional": {
+        "version": "v2.0.0"
+    },
     "laminas/laminas-code": {
         "version": "3.4.1"
     },

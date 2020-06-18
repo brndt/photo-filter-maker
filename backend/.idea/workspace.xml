@@ -159,7 +159,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/Photo/Infrastructure/Framework" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/Shared/Domain" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -199,7 +199,7 @@
       <workItem from="1592332655690" duration="20325000" />
       <workItem from="1592403852086" duration="27336000" />
       <workItem from="1592487923772" duration="17112000" />
-      <workItem from="1592506398796" duration="1757000" />
+      <workItem from="1592506398796" duration="2594000" />
     </task>
     <servers />
   </component>
