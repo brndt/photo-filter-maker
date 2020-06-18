@@ -87,6 +87,27 @@
     "egulias/email-validator": {
         "version": "2.1.17"
     },
+    "elasticsearch/elasticsearch": {
+        "version": "v6.7.2"
+    },
+    "friendsofsymfony/elastica-bundle": {
+        "version": "5.0",
+        "recipe": {
+            "repo": "github.com/symfony/recipes-contrib",
+            "branch": "master",
+            "version": "5.0",
+            "ref": "46c9cd2c1e07f0fcfd97e96f12b03b2e0845c4cd"
+        },
+        "files": [
+            "config/packages/fos_elastica.yaml"
+        ]
+    },
+    "guzzlehttp/ringphp": {
+        "version": "1.1.1"
+    },
+    "guzzlehttp/streams": {
+        "version": "3.0.0"
+    },
     "laminas/laminas-code": {
         "version": "3.4.1"
     },
@@ -123,6 +144,9 @@
     "ocramius/proxy-manager": {
         "version": "2.8.0"
     },
+    "pagerfanta/pagerfanta": {
+        "version": "v2.3.0"
+    },
     "php": {
         "version": "7.4"
     },
@@ -158,6 +182,12 @@
     },
     "ramsey/uuid": {
         "version": "4.0.1"
+    },
+    "react/promise": {
+        "version": "v2.8.0"
+    },
+    "ruflin/elastica": {
+        "version": "6.1.1"
     },
     "sensio/framework-extra-bundle": {
         "version": "5.2",

@@ -16,15 +16,15 @@ final class FiltersType extends Type
 
     public function convertToPHPValue($value, AbstractPlatform $platform)
     {
-        return FiltersToApply::fromArrayOfPrimitives(explode(",", $value));
+        return FiltersToApply::fromArrayOfPrimitives(json_decode($value));
     }
 
     public function convertToDatabaseValue($value, AbstractPlatform $platform)
     {
         if (false == is_string($value)) {
-            return implode(",", ($value->toArrayOfPrimitives()));
+            return json_encode($value->toArrayOfPrimitives());
         }
-        return $value;
+        return json_encode($value);
     }
 
     public function getName()
@@ -34,6 +34,6 @@ final class FiltersType extends Type
 
     public function getSQLDeclaration(array $fieldDeclaration, AbstractPlatform $platform)
     {
-        return 'VARCHAR(255)';
+        return 'VARCHAR';
     }
 }
