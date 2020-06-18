@@ -9,6 +9,7 @@ use LaSalle\Performance\Photo\Domain\Event\PhotoCreatedDomainEvent;
 use LaSalle\Performance\Photo\Domain\ImageProcessing;
 use LaSalle\Performance\Photo\Domain\Repository\PhotoRepository;
 use LaSalle\Performance\Photo\Domain\ValueObject\Filter;
+use LaSalle\Performance\Photo\Domain\ValueObject\FiltersToApply;
 
 final class ApplySepiaFilterOnPhotoCreated
 {
@@ -32,7 +33,7 @@ final class ApplySepiaFilterOnPhotoCreated
         $tags = $event->getTags();
         $description = $event->getDescription();
 
-        $processedPhoto = new Photo($id, $newImageURL, $tags, Filter::sepia(), $description, null);
+        $processedPhoto = new Photo($id, $newImageURL, $tags, Filter::sepia(), $description, FiltersToApply::fromArrayOfPrimitives([]));
         $this->repository->save($processedPhoto);
     }
 }

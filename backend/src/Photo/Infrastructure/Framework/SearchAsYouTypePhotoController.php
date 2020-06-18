@@ -28,8 +28,6 @@ final class SearchAsYouTypePhotoController extends AbstractController
         $keyword = $request->get('keyword');
 
         $params = [
-            'index' => 'photo_index',
-            'body' => [
                 'query' => [
                     'match' => [
                         'nameURL' => [
@@ -38,12 +36,11 @@ final class SearchAsYouTypePhotoController extends AbstractController
                         ]
                     ]
                 ]
-            ]
         ];
 
-        $response = $this->elasticClient->getIndex('photo_index');
-        $result = $response->search($params);
-
-        return new JsonResponse($result, Response::HTTP_OK);
+        $response = $this->elasticClient->getIndex('photo');
+        $elasticResponse = $response->search($params);
+        $arrayResponse = array_map(fn($result) => $result->getData(), $elasticResponse->getResults());
+        return new JsonResponse($arrayResponse, Response::HTTP_OK);
     }
 }

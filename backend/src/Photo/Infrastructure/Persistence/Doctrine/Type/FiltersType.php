@@ -34,6 +34,6 @@ final class FiltersType extends Type
 
     public function getSQLDeclaration(array $fieldDeclaration, AbstractPlatform $platform)
     {
-        return 'VARCHAR';
+        return 'VARCHAR(255)';
     }
 }

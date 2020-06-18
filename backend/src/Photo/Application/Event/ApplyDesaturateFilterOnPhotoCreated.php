@@ -9,6 +9,7 @@ use LaSalle\Performance\Photo\Domain\Event\PhotoCreatedDomainEvent;
 use LaSalle\Performance\Photo\Domain\ImageProcessing;
 use LaSalle\Performance\Photo\Domain\Repository\PhotoRepository;
 use LaSalle\Performance\Photo\Domain\ValueObject\Filter;
+use LaSalle\Performance\Photo\Domain\ValueObject\FiltersToApply;
 
 final class ApplyDesaturateFilterOnPhotoCreated
 {
@@ -31,7 +32,7 @@ final class ApplyDesaturateFilterOnPhotoCreated
         $id = $this->repository->nextIdentity();
         $tags = $event->getTags();
         $description = $event->getDescription();
-        $processedPhoto = new Photo($id, $newImageURL, $tags, Filter::desaturate(), $description, null);
+        $processedPhoto = new Photo($id, $newImageURL, $tags, Filter::desaturate(), $description, FiltersToApply::fromArrayOfPrimitives([]));
         $this->repository->save($processedPhoto);
     }
 }

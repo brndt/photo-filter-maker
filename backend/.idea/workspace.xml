@@ -140,6 +140,13 @@
       <path value="$PROJECT_DIR$/vendor/symfony/amqp-messenger" />
       <path value="$PROJECT_DIR$/vendor/symfony/redis-messenger" />
       <path value="$PROJECT_DIR$/vendor/symfony/amqp-pack" />
+      <path value="$PROJECT_DIR$/vendor/friendsofsymfony/elastica-bundle" />
+      <path value="$PROJECT_DIR$/vendor/pagerfanta/pagerfanta" />
+      <path value="$PROJECT_DIR$/vendor/ruflin/elastica" />
+      <path value="$PROJECT_DIR$/vendor/react/promise" />
+      <path value="$PROJECT_DIR$/vendor/guzzlehttp/streams" />
+      <path value="$PROJECT_DIR$/vendor/guzzlehttp/ringphp" />
+      <path value="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch" />
     </include_path>
   </component>
   <component name="ProjectId" id="1dMrGkT9s4xHyzAh9Op7j7o6sOh" />
@@ -152,7 +159,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/Photo/Infrastructure/Persistence/Doctrine/Type" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/Photo/Infrastructure/Framework" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -164,15 +171,15 @@
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/Photo/Infrastructure/Persistence/Doctrine" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/Photo/Infrastructure/Framework" />
       <recent name="$PROJECT_DIR$/src/Photo/Infrastructure/Persistence/Doctrine/Type" />
       <recent name="$PROJECT_DIR$/src/Photo/Domain/ValueObject" />
       <recent name="$PROJECT_DIR$/src/Shared/Domain/ValueObject" />
       <recent name="$PROJECT_DIR$/src/Photo/Application/Service" />
-      <recent name="$PROJECT_DIR$/src/Photo/Application/Event" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/Photo/Infrastructure/Persistence/Doctrine" />
     </key>
   </component>
   <component name="SvnConfiguration">
@@ -191,6 +198,8 @@
       <workItem from="1592311363742" duration="17330000" />
       <workItem from="1592332655690" duration="20325000" />
       <workItem from="1592403852086" duration="27336000" />
+      <workItem from="1592487923772" duration="17112000" />
+      <workItem from="1592506398796" duration="1757000" />
     </task>
     <servers />
   </component>
@@ -206,10 +215,10 @@
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
     <state x="498" y="72" width="904" height="976" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.27.1920.1053@0.27.1920.1053" timestamp="1592422968482" />
-    <state x="693" y="311" width="524" height="491" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1592436089371">
+    <state x="693" y="311" width="524" height="491" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1592502682059">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
-    <state x="693" y="311" width="524" height="491" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.27.1920.1053@0.27.1920.1053" timestamp="1592436089371" />
+    <state x="693" y="311" width="524" height="491" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.27.1920.1053@0.27.1920.1053" timestamp="1592502682059" />
     <state x="661" y="425" width="588" height="264" key="#com.jetbrains.php.refactoring.move.PhpMoveClassDialog#1" timestamp="1592433118256">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
@@ -222,10 +231,10 @@
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
     <state x="449" y="188" width="1022" height="737" key="SettingsEditor/0.27.1920.1053@0.27.1920.1053" timestamp="1592249817690" />
-    <state x="649" y="285" width="782" height="594" key="find.popup" timestamp="1592436520263">
+    <state x="649" y="285" width="782" height="594" key="find.popup" timestamp="1592496218125">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
-    <state x="649" y="285" width="782" height="594" key="find.popup/0.27.1920.1053@0.27.1920.1053" timestamp="1592436520263" />
+    <state x="649" y="285" width="782" height="594" key="find.popup/0.27.1920.1053@0.27.1920.1053" timestamp="1592496218125" />
     <state x="793" y="324" width="323" height="465" key="refactoring.ChangeSignatureDialog" timestamp="1592424078772">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
@@ -234,9 +243,9 @@
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
     <state x="623" y="259" width="672" height="678" key="search.everywhere.popup/0.27.1920.1053@0.27.1920.1053" timestamp="1592335409682" />
-    <state x="685" y="466" width="540" height="181" key="vcs.readOnlyHandler.ReadOnlyStatusDialog" timestamp="1592337879057">
+    <state x="685" y="466" width="540" height="181" key="vcs.readOnlyHandler.ReadOnlyStatusDialog" timestamp="1592491392886">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
-    <state x="685" y="466" width="540" height="181" key="vcs.readOnlyHandler.ReadOnlyStatusDialog/0.27.1920.1053@0.27.1920.1053" timestamp="1592337879057" />
+    <state x="685" y="466" width="540" height="181" key="vcs.readOnlyHandler.ReadOnlyStatusDialog/0.27.1920.1053@0.27.1920.1053" timestamp="1592491392886" />
   </component>
 </project>

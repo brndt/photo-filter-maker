@@ -8,21 +8,27 @@ fos_elastica:
           photo:
             properties:
               id:
-                type: text
-              nameURL:
-                type: text
+              nameURL: { boost: 8, analyzer: my_analyzer }
               tags:
-                type: text
+              description:
+              filter: { boost: 8, analyzer: my_analyzer }
             persistence:
               driver: orm
               model: LaSalle\Performance\Photo\Domain\Aggregate\Photo
+              listener: ~
               provider: ~
               finder: ~
         settings:
           index:
             analysis:
+              analyzer:
+                my_analyzer:
+                  type: custom
+                  tokenizer: lowercase
+                  filter: [my_ngram]
               filter:
                 my_ngram:
                   type: "nGram"
-                  min_gram: 1
-                  max_gram: 2
+                  min_gram: 3
+                  max_gram: 8
+

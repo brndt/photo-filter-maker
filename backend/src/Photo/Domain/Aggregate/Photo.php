@@ -17,7 +17,7 @@ final class Photo
     private ?array $tags;
     private ?string $description;
     private Filter $filter;
-    private ?FiltersToApply $filtersToApply;
+    private FiltersToApply $filtersToApply;
     private array $eventStream;
 
     public function __construct(
@@ -26,7 +26,7 @@ final class Photo
         ?array $tags,
         Filter $filter,
         ?string $description,
-        ?FiltersToApply $filtersToApply
+        FiltersToApply $filtersToApply
     )
     {
         $this->id = $id;
@@ -37,7 +37,7 @@ final class Photo
         $this->filtersToApply = $filtersToApply;
     }
 
-    public static function create(Uuid $id, string $url, ?array $tags, Filter $filter, ?string $description, ?FiltersToApply $filtersToApply) {
+    public static function create(Uuid $id, string $url, ?array $tags, Filter $filter, ?string $description, FiltersToApply $filtersToApply) {
         $instance = new static(
             $id, $url, $tags, $filter, $description, $filtersToApply
         );
