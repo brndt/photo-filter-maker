@@ -16,7 +16,7 @@ final class ElasticsearchCriteriaConverter
             array_merge(
                 ['from' => $criteria->offset() ?: 0, 'size' => $criteria->limit() ?: 1000],
                 $this->formatQuery($criteria),
-                $this->formatSort($criteria)
+                $this->formatSort($criteria),
             );
     }
 
@@ -38,7 +38,8 @@ final class ElasticsearchCriteriaConverter
         if ($criteria->hasOrder()) {
             $order = $criteria->order();
 
-            return ['sort' => [$order->orderBy()->value() => ['order' => $order->orderType()->getValue()]]];
+           return ['sort' => [$order->orderBy()->value() => ['order' => $order->orderType()->getValue()]]];
+
         }
 
         return [];

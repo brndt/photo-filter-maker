@@ -8,7 +8,7 @@ fos_elastica:
           photo:
             properties:
               id: { fielddata: true }
-              nameURL: { boost: 8, analyzer: my_analyzer, fielddata: true }
+              nameURL:
               tags: { boost: 8, analyzer: my_analyzer, fielddata: true }
               description: { boost: 8, analyzer: my_analyzer, fielddata: true }
               filter: { boost: 8, analyzer: my_analyzer, fielddata: true }
@@ -23,7 +23,7 @@ fos_elastica:
             analysis:
               analyzer:
                 my_analyzer:
-                  type: custom
+                  type: keyword
                   tokenizer: lowercase
                   filter: [my_ngram]
               filter:
