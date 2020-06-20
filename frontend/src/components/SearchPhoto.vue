@@ -33,7 +33,7 @@
         data() {
             return {
                 value: '',
-                suggestionAttribute: 'filter',
+                suggestionAttribute: 'description',
                 suggestions: [],
                 selectedEvent: "",
                 photos: []
@@ -43,7 +43,7 @@
             changed: function () {
                 var that = this
                 this.suggestions = []
-                axios.get('http://localhost:8080/photo?filters[filter]=' + this.value)
+                axios.get('http://localhost:8080/photo?filters[description]=' + this.value)
                     .then(function (photoResponse) {
                         that.photos = []
                         photoResponse.data.forEach(function (a) {
