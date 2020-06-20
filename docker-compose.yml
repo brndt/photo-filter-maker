@@ -63,6 +63,7 @@ services:
 
   sepia-consumer:
     container_name: sepia-consumer
+    restart: on-failure
     build:
       ./docker/php-consumer
     environment:
@@ -78,6 +79,7 @@ services:
 
   desaturate-consumer:
     container_name: desaturate-consumer
+    restart: on-failure
     build:
       ./docker/php-consumer
     environment:
@@ -146,6 +148,7 @@ services:
       - php-fpm
       - mysql
       - nginx
+      - elasticsearch
     networks:
       - backend
 
