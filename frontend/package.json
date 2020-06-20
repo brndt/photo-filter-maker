@@ -9,13 +9,17 @@
   },
   "dependencies": {
     "@fortawesome/vue-fontawesome": "^0.1.9",
+    "algoliasearch": "^4.3.0",
     "axios": "^0.19.2",
     "bootstrap": "^4.5.0",
     "core-js": "^3.6.5",
     "font-awesome": "^4.7.0",
+    "instantsearch.css": "^7.4.2",
     "jquery": "^3.5.1",
     "popper.js": "^1.16.1",
+    "v-autocomplete": "^1.8.2",
     "vue": "^2.6.11",
+    "vue-instant": "^1.0.4",
     "vue-multiselect": "^2.1.6",
     "vue2-dropzone": "^3.6.0"
   },
@@ -27,7 +31,11 @@
     "babel-eslint": "^10.1.0",
     "eslint": "^6.7.2",
     "eslint-plugin-vue": "^6.2.2",
-    "vue-template-compiler": "^2.6.11"
+    "vue-template-compiler": "^2.6.11",
+    "algoliasearch": "3.30.0",
+    "instantsearch.css": "7.1.0",
+    "vue-autosuggest": "2.0.0",
+    "vue-instantsearch": "2.0.0"
   },
   "eslintConfig": {
     "root": true,

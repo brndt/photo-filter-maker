@@ -1,20 +1,19 @@
 <template>
-    <div>
-        <vue-dropzone
-                ref="myVueDropzone"
-                id="dropzone"
-                class="row"
-                :options="dropzoneOptions"
-                v-on:vdropzone-sending="sendingEvent"
-                v-on:vdropzone-success="onSent"
-        >
+        <div id="app">
+            <img alt="Vue logo" src="./../assets/logo.png">
+            <vue-dropzone
+                    ref="myVueDropzone"
+                    id="dropzone"
+                    class="row"
+                    :options="dropzoneOptions"
+                    v-on:vdropzone-sending="sendingEvent"
+                    v-on:vdropzone-success="onSent"
+            >
 
-        </vue-dropzone>
-        <br />
-        <button type="button" class="btn btn-primary" v-on:click="processFiles">Send images</button>
-
-    </div>
-
+            </vue-dropzone>
+            <br/>
+            <button type="button" class="btn btn-primary" v-on:click="processFiles">Send images</button>
+        </div>
 </template>
 
 <script>
@@ -55,8 +54,8 @@
                               <div class="form-group">
                                 <label for="filters">Select filters</label>
                                 <select multiple class="form-control" id="filters">
-                                  <option>Black and white</option>
-                                  <option>Sepia</option>
+                                  <option>desaturate</option>
+                                  <option>sepia</option>
                                 </select>
                               </div>
                         </div>
@@ -68,8 +67,8 @@
         data: function () {
             return {
                 dropzoneOptions: {
-                    url: 'http://localhost:8000/image',
-                    headers: { "My-Awesome-Header": "header value" },
+                    url: 'http://localhost:8080/photo',
+                    headers: {"My-Awesome-Header": "header value"},
                     thumbnailWidth: 350,
                     maxFilesize: 0.5,
                     autoProcessQueue: false,
@@ -83,6 +82,15 @@
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+    #app {
+        font-family: Avenir, Helvetica, Arial, sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        text-align: center;
+        color: #2c3e50;
+        margin-top: 60px;
+    }
+
     h3 {
         margin: 40px 0 0;
     }
