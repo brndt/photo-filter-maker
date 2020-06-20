@@ -1,0 +1,154 @@
+version: '3.5'
+
+services:
+  nginx:
+    image: nginx:latest
+    container_name: nginx
+    depends_on:
+      - php-fpm
+    ports:
+      - 8080:80
+    volumes:
+      - ./backend/:/var/www/html
+      - ./docker/nginx/nginx.conf:/etc/nginx/nginx.conf
+    networks:
+      - backend
+
+  php-fpm:
+    container_name: php-fpm
+    build:
+      ./docker/php-fpm
+    ports:
+      - 9000:9000
+    volumes:
+      - ./backend/:/var/www/html
+    networks:
+      - backend
+
+  mysql:
+    image: mysql:5.6
+    container_name: mysql
+    restart: always
+    environment:
+      MYSQL_DATABASE: 'db'
+      MYSQL_USER: 'user'
+      MYSQL_PASSWORD: 'password'
+      MYSQL_ROOT_PASSWORD: 'password'
+    ports:
+      - 3306:3306
+    networks:
+      - backend
+
+  redis:
+    image: redis
+    container_name: redis
+    ports:
+      - 6379:6379
+    networks:
+      - backend
+
+  rabbitmq:
+    image: rabbitmq:3-management
+    container_name: rabbitmq
+    environment:
+      RABBITMQ_ERLANG_COOKIE: "SWQOKODSQALRPCLNMEQG"
+      RABBITMQ_DEFAULT_USER: "rabbitmq"
+      RABBITMQ_DEFAULT_PASS: "rabbitmq_pass"
+      RABBITMQ_DEFAULT_VHOST: "/"
+    ports:
+      - 15672:15672
+      - 5672:5672
+    networks:
+      - backend
+
+  sepia-consumer:
+    container_name: sepia-consumer
+    build:
+      ./docker/php-consumer
+    environment:
+      - MESSENGER_TRANSPORT_DSN=amqp://rabbitmq:rabbitmq_pass@rabbitmq:5672/%2f/messages
+    depends_on:
+      - php-fpm
+      - rabbitmq
+    volumes:
+      - ./backend/:/var/www/html
+      - ./filter_scripts/sepia-consumer.sh:/var/www/scripts/message-consumer.sh
+    networks:
+      - backend
+
+  desaturate-consumer:
+    container_name: desaturate-consumer
+    build:
+      ./docker/php-consumer
+    environment:
+      - MESSENGER_TRANSPORT_DSN=amqp://rabbitmq:rabbitmq_pass@rabbitmq:5672/%2f/messages
+    depends_on:
+      - php-fpm
+      - rabbitmq
+    volumes:
+      - ./backend/:/var/www/html
+      - ./filter_scripts/desaturate-consumer.sh:/var/www/scripts/message-consumer.sh
+    networks:
+      - backend
+
+  elasticsearch:
+    container_name: elasticsearch
+    image: docker.elastic.co/elasticsearch/elasticsearch:6.8.0
+    user: root
+    environment:
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+      - "TAKE_FILE_OWNERSHIP=1"
+      - "http.cors.enabled=true"
+      - "http.cors.allow-origin=*"
+    ports:
+      - "9200:9200"
+    healthcheck:
+      test: ["CMD-SHELL", "curl --silent --fail localhost:9200/_cluster/health || exit 1"]
+      interval: 30s
+      timeout: 30s
+      retries: 3
+    networks:
+      - backend
+
+  kibana:
+    container_name: kibana
+    image: docker.elastic.co/kibana/kibana:6.8.0
+    ports:
+      - "5601:5601"
+    environment:
+      ELASTICSEARCH_HOSTS: "http://elasticsearch:9200"
+    depends_on:
+      - elasticsearch
+    healthcheck:
+      test: ["CMD", "curl", "-s", "-f", "http://localhost:5601/"]
+      interval: 30s
+      timeout: 30s
+      retries: 3
+    networks:
+      - backend
+
+  frontend:
+    container_name: frontend
+    build:
+      ./docker/frontend
+    volumes:
+      - './frontend/:/var/www/html'
+    ports:
+      - '8081:8080'
+
+  scripts_on_init:
+    container_name: scripts_on_init
+    build:
+      ./docker/bash_script
+    volumes:
+      - ./backend/:/var/www/html
+    depends_on:
+      - php-fpm
+      - mysql
+      - nginx
+    networks:
+      - backend
+
+networks:
+  backend:
+    driver: bridge
