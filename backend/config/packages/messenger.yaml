@@ -17,5 +17,29 @@ framework:
             type: fanout
           queues:
             desaturate: ~
+      sketch:
+        dsn: '%env(MESSENGER_TRANSPORT_DSN)%'
+        options:
+          exchange:
+            name: sketch_processor
+            type: fanout
+          queues:
+            sketch: ~
+      blur:
+        dsn: '%env(MESSENGER_TRANSPORT_DSN)%'
+        options:
+          exchange:
+            name: blur_processor
+            type: fanout
+          queues:
+            blur: ~
+      sharpen:
+        dsn: '%env(MESSENGER_TRANSPORT_DSN)%'
+        options:
+          exchange:
+            name: sharpen_processor
+            type: fanout
+          queues:
+            sharpen: ~
     routing:
-      'LaSalle\Performance\Photo\Domain\Event\PhotoCreatedDomainEvent': [sepia, desaturate]
+      'LaSalle\Performance\Photo\Domain\Event\PhotoCreatedDomainEvent': [sepia, desaturate, sketch, blur, sharpen]

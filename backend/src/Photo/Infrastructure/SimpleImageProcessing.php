@@ -18,45 +18,73 @@ final class SimpleImageProcessing implements ImageProcessing
         $this->parameters = $parameters;
     }
 
-    public function applySepia(string $imageUrl)
-    {
-        $newImageUrl = $this->parameters->get('imagesDirectory') . '1' . $imageUrl;
-
-        try {
-            $image = new SimpleImage();
-            $image
-                ->fromFile(
-                    $this->parameters->get('imagesDirectory') . $imageUrl
-                )
-                ->sepia()
-                ->toFile(
-                    $newImageUrl
-                );      // convert to PNG and save a copy to new-image.png
-            // And much more! 💪
-        } catch (Exception $err) {
-            // Handle errors
-        }
-        return '1' . $imageUrl;
-    }
-
     public function applyDesaturate(string $imageUrl)
     {
-        $newImageUrl = $this->parameters->get('imagesDirectory') . '2' . $imageUrl;
-
+        $newImageUrl = $this->parameters->get('imagesDirectory') . 'desaturate-' . $imageUrl;
         try {
             $image = new SimpleImage();
             $image
-                ->fromFile(
-                    $this->parameters->get('imagesDirectory') . $imageUrl
-                )
+                ->fromFile($this->parameters->get('imagesDirectory') . $imageUrl)
                 ->desaturate()
-                ->toFile(
-                    $newImageUrl
-                );      // convert to PNG and save a copy to new-image.png
-            // And much more! 💪
+                ->toFile($newImageUrl);
         } catch (Exception $err) {
-            // Handle errors
         }
-        return '2' . $imageUrl;
+        return 'desaturate-' . $imageUrl;
+    }
+
+    public function applySepia(string $imageUrl)
+    {
+        $newImageUrl = $this->parameters->get('imagesDirectory') . 'sepia-' . $imageUrl;
+        try {
+            $image = new SimpleImage();
+            $image
+                ->fromFile($this->parameters->get('imagesDirectory') . $imageUrl)
+                ->sepia()
+                ->toFile($newImageUrl);
+        } catch (Exception $err) {
+        }
+        return 'sepia-' . $imageUrl;
+    }
+
+    public function applySharpen(string $imageUrl)
+    {
+        $newImageUrl = $this->parameters->get('imagesDirectory') . 'sharpen-' . $imageUrl;
+        try {
+            $image = new SimpleImage();
+            $image
+                ->fromFile($this->parameters->get('imagesDirectory') . $imageUrl)
+                ->sharpen()
+                ->toFile($newImageUrl);
+        } catch (Exception $err) {
+        }
+        return 'sharpen-' . $imageUrl;
+    }
+
+    public function applySketch(string $imageUrl)
+    {
+        $newImageUrl = $this->parameters->get('imagesDirectory') . 'sketch-' . $imageUrl;
+        try {
+            $image = new SimpleImage();
+            $image
+                ->fromFile($this->parameters->get('imagesDirectory') . $imageUrl)
+                ->sketch()
+                ->toFile($newImageUrl);
+        } catch (Exception $err) {
+        }
+        return 'sketch-' . $imageUrl;
+    }
+
+    public function applyBlur(string $imageUrl)
+    {
+        $newImageUrl = $this->parameters->get('imagesDirectory') . 'blur-' . $imageUrl;
+        try {
+            $image = new SimpleImage();
+            $image
+                ->fromFile($this->parameters->get('imagesDirectory') . $imageUrl)
+                ->blur('selective', 50)
+                ->toFile($newImageUrl);
+        } catch (Exception $err) {
+        }
+        return 'blur-' . $imageUrl;
     }
 }

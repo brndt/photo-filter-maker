@@ -46,7 +46,8 @@ final class SearchPhotosByCriteriaService
             $photo->getTags(),
             $photo->getFilter()->getValue(),
             $photo->getDescription(),
-            $photo->getFiltersToApply()->toArrayOfPrimitives()
+            $photo->getFiltersToApply()->toArrayOfPrimitives(),
+            $photo->getCreatedAt()
         );
     }
 }

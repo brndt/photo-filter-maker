@@ -6,5 +6,6 @@
         <field name="tags" type="array" nullable="true"/>
         <field name="filter" type="filter" nullable="false"/>
         <field name="filtersToApply" type="filtersToApply" nullable="true"/>
+        <field name="createdAt" type="datetime_immutable" nullable="false"/>
     </entity>
 </doctrine-mapping>

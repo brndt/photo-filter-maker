@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace LaSalle\Performance\Photo\Application\Event;
 
+use DateTimeImmutable;
 use LaSalle\Performance\Photo\Domain\Aggregate\Photo;
 use LaSalle\Performance\Photo\Domain\Event\PhotoCreatedDomainEvent;
 use LaSalle\Performance\Photo\Domain\ImageProcessing;
@@ -32,8 +33,17 @@ final class ApplySepiaFilterOnPhotoCreated
         $id = $this->repository->nextIdentity();
         $tags = $event->getTags();
         $description = $event->getDescription();
+        $createdAt = new DateTimeImmutable();
 
-        $processedPhoto = new Photo($id, $newImageURL, $tags, Filter::sepia(), $description, FiltersToApply::fromArrayOfPrimitives([]));
+        $processedPhoto = new Photo(
+            $id,
+            $newImageURL,
+            $tags,
+            Filter::sepia(),
+            $description,
+            FiltersToApply::fromArrayOfPrimitives([]),
+            $createdAt
+        );
         $this->repository->save($processedPhoto);
     }
 }

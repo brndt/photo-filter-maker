@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace LaSalle\Performance\Photo\Application\Response;
 
+use DateTimeImmutable;
+
 final class PhotoResponse
 {
     private string $id;
@@ -12,6 +14,7 @@ final class PhotoResponse
     private ?string $description;
     private string $filter;
     private array $filtersToApply;
+    private DateTimeImmutable $createdAt;
 
     public function __construct(
         string $id,
@@ -19,7 +22,8 @@ final class PhotoResponse
         ?array $tags,
         string $filter,
         ?string $description,
-        array $filtersToApply
+        array $filtersToApply,
+        DateTimeImmutable $createdAt
     )
     {
         $this->id = $id;
@@ -28,6 +32,7 @@ final class PhotoResponse
         $this->description = $description;
         $this->filter = $filter;
         $this->filtersToApply = $filtersToApply;
+        $this->createdAt = $createdAt;
     }
 
     public function getId(): string
@@ -58,5 +63,10 @@ final class PhotoResponse
     public function getFiltersToApply(): array
     {
         return $this->filtersToApply;
+    }
+
+    public function getCreatedAt(): DateTimeImmutable
+    {
+        return $this->createdAt;
     }
 }

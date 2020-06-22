@@ -38,6 +38,20 @@ services:
     tags:
       - { name: messenger.message_handler, handles: LaSalle\Performance\Photo\Domain\Event\PhotoCreatedDomainEvent, from_transport: desaturate}
 
+  LaSalle\Performance\Photo\Application\Event\ApplySketchFilterOnPhotoCreated:
+    autoconfigure: false
+    tags:
+      - { name: messenger.message_handler, handles: LaSalle\Performance\Photo\Domain\Event\PhotoCreatedDomainEvent, from_transport: sketch}
+
+  LaSalle\Performance\Photo\Application\Event\ApplyBlurFilterOnPhotoCreated:
+    autoconfigure: false
+    tags:
+      - { name: messenger.message_handler, handles: LaSalle\Performance\Photo\Domain\Event\PhotoCreatedDomainEvent, from_transport: blur}
+
+  LaSalle\Performance\Photo\Application\Event\ApplySharpenFilterOnPhotoCreated:
+    autoconfigure: false
+    tags:
+      - { name: messenger.message_handler, handles: LaSalle\Performance\Photo\Domain\Event\PhotoCreatedDomainEvent, from_transport: sharpen}
   #          arguments:
   #              - 'redis'
   #              - 6379

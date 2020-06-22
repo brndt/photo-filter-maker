@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace LaSalle\Performance\Photo\Application\Service;
 
+use DateTimeImmutable;
 use LaSalle\Performance\Photo\Application\Request\SavePhotoRequest;
 use LaSalle\Performance\Photo\Domain\Aggregate\Photo;
 use LaSalle\Performance\Photo\Domain\Repository\PhotoRepository;
@@ -30,8 +31,9 @@ final class SaveOriginalPhotoService
         $description = $request->getDescription();
         $filter = Filter::original();
         $filtersToApply = FiltersToApply::fromArrayOfPrimitives($request->getFilters());
+        $createdAt = new DateTimeImmutable();
 
-        $photo = Photo::create($id, $nameURL, $tags, $filter, $description, $filtersToApply);
+        $photo = Photo::create($id, $nameURL, $tags, $filter, $description, $filtersToApply, $createdAt);
         $this->repository->save($photo);
         foreach ($photo->pullDomainEvents() as $domainEvent) {
             $this->eventBus->dispatch($domainEvent);

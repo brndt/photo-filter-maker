@@ -12,6 +12,7 @@ fos_elastica:
               tags: { boost: 8, analyzer: my_analyzer, fielddata: true, type: text }
               description: { boost: 8, analyzer: my_analyzer, fielddata: true, type: text }
               filter: { boost: 8, analyzer: my_analyzer, fielddata: true, type: text }
+              createdAt: { boost: 8, analyzer: my_analyzer, fielddata: true, type: text }
             persistence:
               driver: orm
               model: LaSalle\Performance\Photo\Domain\Aggregate\Photo

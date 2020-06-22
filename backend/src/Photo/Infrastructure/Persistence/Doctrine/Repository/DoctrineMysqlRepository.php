@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace LaSalle\Performance\Photo\Infrastructure\Persistence\Doctrine\Repository;
 
+use DateTimeImmutable;
 use Doctrine\ORM\EntityManagerInterface;
 use LaSalle\Performance\Photo\Domain\Aggregate\Photo;
 use LaSalle\Performance\Photo\Domain\Repository\PhotoRepository;
@@ -24,7 +25,7 @@ final class DoctrineMysqlRepository implements PhotoRepository
 
     public function save(Photo $photo): void
     {
-        $this->redis->set($photo->getId()->toString(), json_encode($photo->toPrimitives()));
+        $this->redis->setex($photo->getId()->toString(), 60 * 30, json_encode($photo->toPrimitives()));
         $this->entityManager->persist($photo);
         $this->entityManager->flush();
     }
@@ -38,7 +39,9 @@ final class DoctrineMysqlRepository implements PhotoRepository
         if (null !== $photoAsJson) {
             return $this->buildPhotoFromPrimitives(json_decode($photoAsJson, true));
         }
-        return $this->entityManager->getRepository(Photo::class)->find($id);
+        $photoToReturn = $this->entityManager->getRepository(Photo::class)->find($id);
+        $this->redis->setex($id->toString(), 60 * 30, json_encode($photoToReturn->toPrimitives()));
+        return $photoToReturn;
     }
 
     public function nextIdentity(): Uuid
@@ -54,7 +57,8 @@ final class DoctrineMysqlRepository implements PhotoRepository
             $photoAsArray['tags'],
             Filter::make($photoAsArray['filter']),
             $photoAsArray['description'],
-            $photoAsArray['filtersToApply']
+            $photoAsArray['filtersToApply'],
+            new DateTimeImmutable($photoAsArray['createdAt'])
         );
     }
 }

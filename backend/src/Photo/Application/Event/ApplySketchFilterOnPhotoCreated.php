@@ -12,7 +12,7 @@ use LaSalle\Performance\Photo\Domain\Repository\PhotoRepository;
 use LaSalle\Performance\Photo\Domain\ValueObject\Filter;
 use LaSalle\Performance\Photo\Domain\ValueObject\FiltersToApply;
 
-final class ApplyDesaturateFilterOnPhotoCreated
+final class ApplySketchFilterOnPhotoCreated
 {
     private ImageProcessing $imageProcessing;
     private PhotoRepository $repository;
@@ -25,11 +25,11 @@ final class ApplyDesaturateFilterOnPhotoCreated
 
     public function __invoke(PhotoCreatedDomainEvent $event)
     {
-        if (false === in_array(Filter::desaturate()->getValue(), $event->getFiltersToApply())) {
+        if (false === in_array(Filter::sketch()->getValue(), $event->getFiltersToApply())) {
             return;
         }
 
-        $newImageURL = $this->imageProcessing->applyDesaturate($event->getNameURL());
+        $newImageURL = $this->imageProcessing->applySketch($event->getNameURL());
         $id = $this->repository->nextIdentity();
         $tags = $event->getTags();
         $description = $event->getDescription();
@@ -39,7 +39,7 @@ final class ApplyDesaturateFilterOnPhotoCreated
             $id,
             $newImageURL,
             $tags,
-            Filter::desaturate(),
+            Filter::sketch(),
             $description,
             FiltersToApply::fromArrayOfPrimitives([]),
             $createdAt

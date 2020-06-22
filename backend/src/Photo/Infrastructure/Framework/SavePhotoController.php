@@ -12,16 +12,23 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Validator\Constraints\Image;
+use Symfony\Component\Validator\Validator\ValidatorInterface;
 
 final class SavePhotoController extends AbstractController
 {
     private SaveOriginalPhotoService $savePhotoService;
     private PhotoRepository $photoRepository;
+    private ValidatorInterface $validator;
 
-    public function __construct(SaveOriginalPhotoService $savePhotoService, PhotoRepository $photoRepository)
-    {
+    public function __construct(
+        SaveOriginalPhotoService $savePhotoService,
+        PhotoRepository $photoRepository,
+        ValidatorInterface $validator
+    ) {
         $this->savePhotoService = $savePhotoService;
         $this->photoRepository = $photoRepository;
+        $this->validator = $validator;
     }
 
     /**
@@ -30,6 +37,15 @@ final class SavePhotoController extends AbstractController
     public function postAction(Request $request)
     {
         $image = $request->files->get('file');
+
+        $violations = $this->validator->validate($image, [new Image(['maxSize' => '3M'])]);
+
+        if (0 !== count($violations)) {
+            foreach ($violations as $violation) {
+                $response[] = $violation->getMessage();
+            }
+            return new JsonResponse($response, Response::HTTP_BAD_REQUEST);
+        }
 
         $imageURL = $image->getClientOriginalName();
         $image->move($this->getParameter('imagesDirectory'), $imageURL);

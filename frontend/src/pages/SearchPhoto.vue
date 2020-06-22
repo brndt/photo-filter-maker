@@ -20,11 +20,10 @@
                             </v-card-text>
                         </v-card>
                         <v-row>
-                            <v-col cols="12" md="3" v-for="item in photos" v-bind:key="item.id">
+                            <v-col cols="12" md="4" v-for="item in photos" v-bind:key="item.id">
                                 <v-card>
                                     <v-img
                                             :src="'http://localhost:8080/uploads/' + item.nameURL"
-                                            gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
                                             class="white--text align-end">
                                         <v-card-title>{{item.filter}}</v-card-title>
                                     </v-img>
@@ -94,10 +93,10 @@
 
                 let url = 'http://localhost:8080/photo?filters[description]=' + this.queryDescriptionTerm
 
-                if (null !== this.selectedTags && '' !== this.selectedTags) {
+                if (null !== this.selectedTags && 0 !== this.selectedTags.length) {
                     url += '&filters[tags]=' + this.selectedTags
                 }
-                if (null !== this.selectedFilters && '' !== this.selectedFilters) {
+                if (null !== this.selectedFilters && 0 !== this.selectedFilters.length) {
                     url += '&filters[filter]=' + this.selectedFilters
                 }
                 fetch(url)

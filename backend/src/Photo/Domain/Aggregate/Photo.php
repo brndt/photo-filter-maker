@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace LaSalle\Performance\Photo\Domain\Aggregate;
 
+use DateTimeImmutable;
 use LaSalle\Performance\Photo\Domain\Event\PhotoCreatedDomainEvent;
 use LaSalle\Performance\Photo\Domain\ValueObject\Filter;
 use LaSalle\Performance\Photo\Domain\ValueObject\FiltersToApply;
@@ -19,6 +20,7 @@ final class Photo
     private Filter $filter;
     private FiltersToApply $filtersToApply;
     private array $eventStream;
+    private DateTimeImmutable $createdAt;
 
     public function __construct(
         Uuid $id,
@@ -26,7 +28,8 @@ final class Photo
         ?array $tags,
         Filter $filter,
         ?string $description,
-        FiltersToApply $filtersToApply
+        FiltersToApply $filtersToApply,
+        DateTimeImmutable $createdAt
     )
     {
         $this->id = $id;
@@ -35,11 +38,12 @@ final class Photo
         $this->description = $description;
         $this->filter = $filter;
         $this->filtersToApply = $filtersToApply;
+        $this->createdAt = $createdAt;
     }
 
-    public static function create(Uuid $id, string $url, ?array $tags, Filter $filter, ?string $description, FiltersToApply $filtersToApply) {
+    public static function create(Uuid $id, string $url, ?array $tags, Filter $filter, ?string $description, FiltersToApply $filtersToApply, DateTimeImmutable $createdAt) {
         $instance = new static(
-            $id, $url, $tags, $filter, $description, $filtersToApply
+            $id, $url, $tags, $filter, $description, $filtersToApply, $createdAt
         );
 
         $instance->recordThat(
@@ -69,6 +73,11 @@ final class Photo
     public function getTags(): array
     {
         return $this->tags;
+    }
+
+    public function getCreatedAt(): DateTimeImmutable
+    {
+        return $this->createdAt;
     }
 
     public function getDescription(): string
@@ -107,7 +116,8 @@ final class Photo
             'tags' => $this->tags,
             'description' => $this->description,
             'filter' => $this->filter->getValue(),
-            'filtersToApply' => $this->filtersToApply
+            'filtersToApply' => $this->filtersToApply,
+            'createdAt' => $this->createdAt
         ];
     }
 }

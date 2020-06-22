@@ -96,6 +96,57 @@ services:
     networks:
       - backend
 
+  sketch-consumer:
+    container_name: sketch-consumer
+    restart: on-failure
+    build:
+      ./docker/php-consumer
+    environment:
+      - MESSENGER_TRANSPORT_DSN=amqp://rabbitmq:rabbitmq_pass@rabbitmq:5672/%2f/messages
+    depends_on:
+      - php-fpm
+      - rabbitmq
+    volumes:
+      - ./backend/:/var/www/html
+      - ./filter_scripts/sketch-consumer.sh:/var/www/scripts/message-consumer.sh
+      - ./docker/php-fpm/php-ini-overrides.ini:/usr/local/etc/php/conf.d/php-ini-overrides.ini
+    networks:
+      - backend
+
+  blur-consumer:
+    container_name: blur-consumer
+    restart: on-failure
+    build:
+      ./docker/php-consumer
+    environment:
+      - MESSENGER_TRANSPORT_DSN=amqp://rabbitmq:rabbitmq_pass@rabbitmq:5672/%2f/messages
+    depends_on:
+      - php-fpm
+      - rabbitmq
+    volumes:
+      - ./backend/:/var/www/html
+      - ./filter_scripts/blur-consumer.sh:/var/www/scripts/message-consumer.sh
+      - ./docker/php-fpm/php-ini-overrides.ini:/usr/local/etc/php/conf.d/php-ini-overrides.ini
+    networks:
+      - backend
+
+  sharpen-consumer:
+    container_name: sharpen-consumer
+    restart: on-failure
+    build:
+      ./docker/php-consumer
+    environment:
+      - MESSENGER_TRANSPORT_DSN=amqp://rabbitmq:rabbitmq_pass@rabbitmq:5672/%2f/messages
+    depends_on:
+      - php-fpm
+      - rabbitmq
+    volumes:
+      - ./backend/:/var/www/html
+      - ./filter_scripts/sharpen-consumer.sh:/var/www/scripts/message-consumer.sh
+      - ./docker/php-fpm/php-ini-overrides.ini:/usr/local/etc/php/conf.d/php-ini-overrides.ini
+    networks:
+      - backend
+
   elasticsearch:
     container_name: elasticsearch
     image: docker.elastic.co/elasticsearch/elasticsearch:6.8.0
