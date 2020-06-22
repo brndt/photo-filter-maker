@@ -72,6 +72,7 @@
                 const description = this.description
                 const tags = this.selectedTags
                 const filters = this.selectedFilters
+                console.log(filters)
                 formData.append('description', description);
                 formData.append('tags', tags);
                 formData.append('filters', filters);

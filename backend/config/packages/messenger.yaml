@@ -5,17 +5,17 @@ framework:
         dsn: '%env(MESSENGER_TRANSPORT_DSN)%'
         options:
           exchange:
-            name: imageProccessor
+            name: sepia_processor
             type: fanout
           queues:
-            - sepia
+            sepia: ~
       desaturate:
         dsn: '%env(MESSENGER_TRANSPORT_DSN)%'
         options:
           exchange:
-            name: imageProccessor
+            name: desaturate_processor
             type: fanout
           queues:
-            - desaturate
+            desaturate: ~
     routing:
       'LaSalle\Performance\Photo\Domain\Event\PhotoCreatedDomainEvent': [sepia, desaturate]
