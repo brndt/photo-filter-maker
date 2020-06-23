@@ -12,7 +12,8 @@
     "vue": "^2.6.11",
     "vue-template-compiler": "^2.6.11",
     "vue2-dropzone": "^3.6.0",
-    "vuetify": "^2.3.1"
+    "vuetify": "^2.3.1",
+    "preload-webpack-plugin": "^2.3.0"
   },
   "devDependencies": {
     "@mdi/font": "^5.3.45",
