@@ -3,7 +3,7 @@ FROM node:latest
 # set working directory
 WORKDIR /var/www/html/frontend
 
-ENV PATH /app/node_modules/.bin:$PATH
+ENV PATH /var/www/html/frontend/node_modules/.bin:$PATH
 
 COPY package.json ./
 
