@@ -14,7 +14,7 @@ En la parte del backend se ha utilizado el Blackfire con el que se ha observado 
 
 ![alt text](/backend/public/perfomance_images/blackfire1.png)
 
-La clases que están relacionadas con el end point del GET /search no tienen problemas con el rendimiento
+Las clases que están relacionadas con el end point del GET /search no tienen problemas con el rendimiento
 
 ![alt text](/backend/public/perfomance_images/blackfire2.png)
 
