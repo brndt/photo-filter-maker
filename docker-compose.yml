@@ -62,6 +62,17 @@ services:
     networks:
       - backend
 
+  composer:
+    container_name: composer
+    restart: 'no'
+    image: composer
+    command: install --ignore-platform-reqs
+    working_dir: /var/www/html
+    volumes:
+      - ./backend/:/var/www/html
+    networks:
+      - backend
+
   sepia-consumer:
     container_name: sepia-consumer
     restart: on-failure
