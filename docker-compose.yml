@@ -209,10 +209,10 @@ services:
   blackfire:
     image: blackfire/blackfire
     environment:
-      BLACKFIRE_CLIENT_ID: "82e381c3-4b0e-4dec-9e91-f5b974e74da3"
-      BLACKFIRE_CLIENT_TOKEN: "1279cd90e7c5d5e2316d620d70c4fc8673209ce235146164be0b75bdd34c213f"
-      BLACKFIRE_SERVER_ID: "43d83612-2060-49ac-93e3-012264c4911e"
-      BLACKFIRE_SERVER_TOKEN: "15c1f9478e8bf0e861fea1e019b6eaab7b352b281f14cd1e0eeadf707a9daa9d"
+      BLACKFIRE_CLIENT_ID: ~
+      BLACKFIRE_CLIENT_TOKEN: ~
+      BLACKFIRE_SERVER_ID: ~
+      BLACKFIRE_SERVER_TOKEN: ~
     networks:
       - backend
 
