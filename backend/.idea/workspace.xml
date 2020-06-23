@@ -2,7 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="936b8264-6ebc-4970-b62c-d9ec3ba66362" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../frontend/src/components/HelloWorld.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/components/HelloWorld.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../frontend/vue.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docker/bash_script/elastic-index-generate.sh" beforeDir="false" afterPath="$PROJECT_DIR$/../docker/bash_script/elastic-index-generate.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docker/php-fpm/php-ini-overrides.ini" beforeDir="false" afterPath="$PROJECT_DIR$/../docker/php-fpm/php-ini-overrides.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/components/VLink.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/components/VLink.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/layouts/Main.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/layouts/Main.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/pages/404.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/pages/404.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/routes.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -147,6 +156,7 @@
       <path value="$PROJECT_DIR$/vendor/guzzlehttp/streams" />
       <path value="$PROJECT_DIR$/vendor/guzzlehttp/ringphp" />
       <path value="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch" />
+      <path value="$PROJECT_DIR$/vendor/lambdish/phunctional" />
     </include_path>
   </component>
   <component name="ProjectId" id="1dMrGkT9s4xHyzAh9Op7j7o6sOh" />
@@ -159,7 +169,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/Shared/Domain" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/Photo/Application/Event" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -171,15 +181,15 @@
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/Photo/Infrastructure/Persistence/Doctrine" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/Photo/Application/Event" />
       <recent name="$PROJECT_DIR$/src/Photo/Infrastructure/Framework" />
       <recent name="$PROJECT_DIR$/src/Photo/Infrastructure/Persistence/Doctrine/Type" />
       <recent name="$PROJECT_DIR$/src/Photo/Domain/ValueObject" />
       <recent name="$PROJECT_DIR$/src/Shared/Domain/ValueObject" />
-      <recent name="$PROJECT_DIR$/src/Photo/Application/Service" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/Photo/Infrastructure/Persistence/Doctrine" />
     </key>
   </component>
   <component name="SvnConfiguration">
@@ -200,6 +210,8 @@
       <workItem from="1592403852086" duration="27336000" />
       <workItem from="1592487923772" duration="17112000" />
       <workItem from="1592506398796" duration="2594000" />
+      <workItem from="1592840904879" duration="23579000" />
+      <workItem from="1592911601577" duration="364000" />
     </task>
     <servers />
   </component>
