@@ -1,29 +1,17 @@
-# rendimiento_final
+# Simple photo filter maker
 
-1. docker-compose up -d
-2. sudo chmod 777 -R backend/public/uploads/
-3. acceder a las páginas
-- http://localhost:8081/upload
-- http://localhost:8081/search
+Photo filter maker developed using Clean Architecture concepts.
 
-**Rendimiento**
+Technologies used: PHP 7, Symfony, RabbitMQ, Docker, Mysql, Elasticsearch Nginx, Vue
 
-Se ha hecho un análisis del rendimiento del proyecto tanto al nivel del frontend como del backend.
+## Application execution
 
-En la parte del backend se ha utilizado el Blackfire con el que se ha observado el end point GET /search. Como se puede ver en los screenshots, la herramienta no ha detectado los problemas en cuanto al rendimiento. Los dos consejos propuestos se refieren a que el framwork no debe realizar el tracking de los recursos y usar el 'debug mode' si la aplicación está en el modo de producción.
+To start the project you need:
 
-![alt text](/backend/public/perfomance_images/blackfire1.png)
-
-Las clases que están relacionadas con el end point del GET /search no tienen problemas con el rendimiento
-
-![alt text](/backend/public/perfomance_images/blackfire2.png)
-
-Con respeto a la parte del frontend, se ha utilizado la herramienta Lighthouse que ha detectado dos problemas:
-
-![alt text](/backend/public/perfomance_images/lighthouse1.png)
-
-Dado que se utiliza la librería Vuetify del Vue, no ha sido posible usar los plugins como 'purgecss' dado que no pueden leer los selectores dentro de los componentes que provienen de Vuetify.
-
-En cuanto al sugundo problema de 'Preload key requests', para resolverlo se ha utilizado la librería 'preload-webpack-plugin'.
-
-![alt text](/backend/public/perfomance_images/lighthouse2.png)
+1. Install [Docker](https://docs.docker.com/get-docker/)
+2. Clone the project `git clone git@github.com:brndt/photo-filter-maker.git`
+3. [Set vm.max_map_count to at least 262144](https://www.elastic.co/guide/en/elasticsearch/reference/current/docker.html#_set_vm_max_map_count_to_at_least_262144)
+4. Run the command `make build`
+5. Access to the following URLs:
+   * [Upload photo](http://localhost:8081/upload)
+   * [Search photo](http://localhost:8081/search)
