@@ -3,7 +3,7 @@ version: '3.5'
 services:
   nginx:
     image: nginx:latest
-    container_name: nginx
+    container_name: photo_filter_maker_nginx
     depends_on:
       - php-fpm
     ports:
@@ -15,7 +15,7 @@ services:
       - backend
 
   php-fpm:
-    container_name: php-fpm
+    container_name: photo_filter_maker_php-fpm
     build:
       ./docker/php-fpm
     ports:
@@ -28,7 +28,7 @@ services:
 
   mysql:
     image: mysql:5.6
-    container_name: mysql
+    container_name: photo_filter_maker_mysql
     restart: always
     environment:
       MYSQL_DATABASE: 'db'
@@ -36,13 +36,13 @@ services:
       MYSQL_PASSWORD: 'password'
       MYSQL_ROOT_PASSWORD: 'password'
     ports:
-      - 3306:3306
+      - 3366:3306
     networks:
       - backend
 
   redis:
     image: redis
-    container_name: redis
+    container_name: photo_filter_maker_redis
     ports:
       - 6379:6379
     networks:
@@ -50,7 +50,7 @@ services:
 
   rabbitmq:
     image: rabbitmq:3-management
-    container_name: rabbitmq
+    container_name: photo_filter_maker_rabbitmq
     environment:
       RABBITMQ_ERLANG_COOKIE: "SWQOKODSQALRPCLNMEQG"
       RABBITMQ_DEFAULT_USER: "rabbitmq"
@@ -62,19 +62,8 @@ services:
     networks:
       - backend
 
-  composer:
-    container_name: composer
-    restart: 'no'
-    image: composer
-    command: install --ignore-platform-reqs
-    working_dir: /var/www/html
-    volumes:
-      - ./backend/:/var/www/html
-    networks:
-      - backend
-
   sepia-consumer:
-    container_name: sepia-consumer
+    container_name: photo_filter_maker_sepia-consumer
     restart: on-failure
     build:
       ./docker/php-consumer
@@ -91,7 +80,7 @@ services:
       - backend
 
   desaturate-consumer:
-    container_name: desaturate-consumer
+    container_name: photo_filter_maker_desaturate-consumer
     restart: on-failure
     build:
       ./docker/php-consumer
@@ -108,7 +97,7 @@ services:
       - backend
 
   sketch-consumer:
-    container_name: sketch-consumer
+    container_name: photo_filter_maker_sketch-consumer
     restart: on-failure
     build:
       ./docker/php-consumer
@@ -125,7 +114,7 @@ services:
       - backend
 
   blur-consumer:
-    container_name: blur-consumer
+    container_name: photo_filter_maker_blur-consumer
     restart: on-failure
     build:
       ./docker/php-consumer
@@ -142,7 +131,7 @@ services:
       - backend
 
   sharpen-consumer:
-    container_name: sharpen-consumer
+    container_name: photo_filter_maker_sharpen-consumer
     restart: on-failure
     build:
       ./docker/php-consumer
@@ -178,7 +167,7 @@ services:
       - backend
 
   kibana:
-    container_name: kibana
+    container_name: photo_filter_maker_kibana
     image: docker.elastic.co/kibana/kibana:6.8.0
     ports:
       - "5601:5601"
@@ -195,7 +184,7 @@ services:
       - backend
 
   frontend:
-    container_name: frontend
+    container_name: photo_filter_maker_frontend
     build:
       ./docker/frontend
     volumes:
@@ -205,7 +194,7 @@ services:
       - '8081:8080'
 
   scripts_on_init:
-    container_name: scripts_on_init
+    container_name: photo_filter_maker_scripts_on_init
     build:
       ./docker/bash_script
     volumes:
